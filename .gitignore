@@ -1,2 +1,5 @@
 .idea/
 .~lock.prices.xlsx#
+build/
+dist/
+result/

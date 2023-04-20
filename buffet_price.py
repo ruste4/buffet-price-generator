@@ -1,5 +1,6 @@
 from fpdf import FPDF
 import openpyxl
+import os
 
 
 class BuffetPricesGenerator:
@@ -75,6 +76,9 @@ class BuffetPricesGenerator:
                 self.create_page(str(col[0]), str(col[1]))
             elif col[0] is not None and col[1] is None:
                 self.change_active_bg_color(col[0])
+
+        if not os.path.isdir("result"):
+            os.mkdir("result")
 
         self.pdf.output("./result/buffet_prices_output.pdf")
 
