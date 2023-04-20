@@ -16,9 +16,9 @@ class BuffetPricesGenerator:
         self.active_bg_color = self.DRINKS_COLOR_RGB
 
         self.pdf = FPDF(format=(self.pageW, self.pageH), unit="mm")
-        self.pdf.add_font("BebasNeue", "", "./BebasNeueBold.ttf", uni=True)
+        self.pdf.add_font("BebasNeue", "", "./fonts/BebasNeueBold.ttf", uni=True)
 
-        self.exel_file = openpyxl.load_workbook('prices.xlsx')
+        self.exel_file = openpyxl.load_workbook("input/prices.xlsx")
 
     def draw_background(self):
         self.pdf.set_line_width(1)
@@ -36,7 +36,7 @@ class BuffetPricesGenerator:
         self.pdf.ellipse(540, 299, 413, 413, 'F')
 
     def draw_logo(self):
-        self.pdf.image("./bg/buffet_logo.png", h=50, w=201, x=70, y=560)
+        self.pdf.image("./img/buffet_logo.png", h=50, w=201, x=70, y=560)
 
     def draw_price(self, price: str):
         self.pdf.set_font("BebasNeue", size=451)
@@ -76,7 +76,7 @@ class BuffetPricesGenerator:
             elif col[0] is not None and col[1] is None:
                 self.change_active_bg_color(col[0])
 
-        self.pdf.output("simple_demo.pdf")
+        self.pdf.output("./result/buffet_prices_output.pdf")
 
 
 if __name__ == '__main__':

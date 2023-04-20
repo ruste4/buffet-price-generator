@@ -26,7 +26,7 @@ def draw_circle(book: FPDF):
 
 
 def draw_logo(book: FPDF):
-    book.image("./bg/buffet_logo.png", h=50, w=201, x=70, y=560)
+    book.image("img/buffet_logo.png", h=50, w=201, x=70, y=560)
 
 
 def draw_price(book: FPDF, price: str):
